@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\c#\\PruebaBackendASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj": {}
+    "C:\\Users\\Nelsonv\\Downloads\\PruebaASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj": {}
   },
   "projects": {
-    "C:\\c#\\PruebaBackendASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj": {
+    "C:\\Users\\Nelsonv\\Downloads\\PruebaASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\c#\\PruebaBackendASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj",
+        "projectUniqueName": "C:\\Users\\Nelsonv\\Downloads\\PruebaASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj",
         "projectName": "PruebaBackendASEINFO",
-        "projectPath": "C:\\c#\\PruebaBackendASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj",
+        "projectPath": "C:\\Users\\Nelsonv\\Downloads\\PruebaASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj",
         "packagesPath": "C:\\Users\\Nelsonv\\.nuget\\packages\\",
-        "outputPath": "C:\\c#\\PruebaBackendASEINFO\\PruebaBackendASEINFO\\obj\\",
+        "outputPath": "C:\\Users\\Nelsonv\\Downloads\\PruebaASEINFO\\PruebaBackendASEINFO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nelsonv\\AppData\\Roaming\\NuGet\\NuGet.Config",

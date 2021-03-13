@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dyzgUvubxAs8gQY36DnNENBHpdxc18v1oK/TseRPB3HY/POMexrFLr7b0HBSNbNaefNl6u9WEZ+NqcUAAxkSkw==",
+  "dgSpecHash": "J1yLbffBCRUwILNpg6yA7JCBCeUfaJeygZHLuLCDD5ckGfSOs+IkvErMODHs0uo5GDz3IWMl5F0Po6QY1LglHg==",
   "success": true,
-  "projectFilePath": "C:\\c#\\PruebaBackendASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj",
+  "projectFilePath": "C:\\Users\\Nelsonv\\Downloads\\PruebaASEINFO\\PruebaBackendASEINFO\\PruebaBackendASEINFO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nelsonv\\.nuget\\packages\\cryptohelper\\3.0.2\\cryptohelper.3.0.2.nupkg.sha512",
     "C:\\Users\\Nelsonv\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
