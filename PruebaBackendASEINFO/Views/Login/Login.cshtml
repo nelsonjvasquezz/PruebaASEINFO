@@ -1,0 +1,57 @@
+﻿@model PruebaBackendASEINFO.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3 mt-5">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="row shadow bg-white rounded">
+                        <div class="col-md-6 p-5 bg-primary">
+                            <img src="~/Image/aseinfologow.png" class="img-fluid" />
+                        </div>
+                        <div class="col-md-6 p-5">
+                            <h1 class="text-center font-weight-light">Login</h1>
+                            <div class="text-danger text-center mt-2 mb-2">
+                                @ViewBag.Error
+                            </div>
+                            <form asp-action="Autenticar" method="post">
+                                <div class="form-group col-md-12 ">
+                                    <label>Correo</label>
+                                    @Html.TextBoxFor(l => l.Correo, null, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(l => l.Correo, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Nueva contraseña</label>
+                                    @Html.PasswordFor(l => l.Contrasenia, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(l => l.Contrasenia, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <a asp-action="ComenzarRecuperacion" asp-controller="Recuperacion">Olvidaste tu contraseña?</a>
+                                </div>
+                                <input type="submit" class="btn btn-primary btn-block" value="Acceder">
+                            </form>
+                            <div class="form-group">
+                                <a asp-action="Create" asp-controller="Registro">Crear cuenta</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿@model PruebaBackendASEINFO.ViewModels.CorreoViewModel
+@{
+    ViewData["Title"] = "Recuperar contraseña";
+}
+<div class="text-success">
+    @ViewBag.Message
+</div>
+<h1 class="font-weight-light">Recuperar contraseña</h1>
+
+<form asp-action="ComenzarRecuperacion" asp-controller="Recuperacion" method="post">
+    <div class="form-group">
+        <label>Correo</label>
+        @Html.TextBoxFor(r => r.Correo, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(r => r.Correo, null, new { @class = "text-danger" })
+    </div>
+    <div>
+        <input type="submit" value="Recuperar" class="btn btn-primary" />
+    </div>
+</form>
+
