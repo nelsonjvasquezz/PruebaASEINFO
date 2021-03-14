@@ -9,6 +9,8 @@ namespace PruebaBackendASEINFO.ViewModels
 {
     public class RegistroViewModel
     {
+        public int IdUsuario { get; set; }
+
         [Required(ErrorMessage = "Este campo es requerido")]
         public String Username { get; set; }
 

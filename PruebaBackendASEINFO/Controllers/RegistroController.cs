@@ -105,13 +105,23 @@ namespace PruebaBackendASEINFO.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario == null)
+            var cliente = await _context.Clientes.Include(c => c.IdUsuarioNavigation).FirstOrDefaultAsync(c => c.IdCliente == id);
+            var usuario = cliente.IdUsuarioNavigation;
+            RegistroViewModel model = new RegistroViewModel();
+            model.IdUsuario = (int) id;
+            model.Username = usuario.NombreUsuario;
+            model.Correo = usuario.Correo;
+            model.Nombres = cliente.Nombre;
+            model.Apellidos = cliente.Apellidos;
+            model.Genero = cliente.Genero;
+            model.Direccion = cliente.Direccion;
+            model.Contrasenia = usuario.Contrasenia;
+            model.ConfirmContra = usuario.Contrasenia;
+            if (usuario == null || usuario.Habilitado == false)
             {
                 return NotFound();
             }
-            ViewData["IdRol"] = new SelectList(_context.Rols, "IdRol", "IpModifica", usuario.IdRol);
-            return View(usuario);
+            return View(model);
         }
 
         // POST: Registro/Edit/5
@@ -119,23 +129,35 @@ namespace PruebaBackendASEINFO.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,NombreUsuario,Correo,Contrasenia,Imagen,IdRol,Habilitado,FechaModifica,IpModifica")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, RegistroViewModel model)
         {
-            if (id != usuario.IdUsuario)
+            if (id != model.IdUsuario)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
+                Usuario usuario = new Usuario();
+                Cliente cliente = new Cliente();
                 try
                 {
+                    usuario.NombreUsuario = model.Username;
+                    usuario.Correo = model.Correo;
+                    usuario.FechaModifica = DateTime.Now;
+                    usuario.IpModifica = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
+
+                    cliente.Nombre = model.Nombres;
+                    cliente.Apellidos = model.Apellidos;
+                    cliente.Genero = model.Genero;
+                    cliente.Direccion = model.Direccion;
                     _context.Update(usuario);
+                    _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.IdUsuario))
+                    if (!UsuarioExists(model.IdUsuario))
                     {
                         return NotFound();
                     }
@@ -146,8 +168,7 @@ namespace PruebaBackendASEINFO.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdRol"] = new SelectList(_context.Rols, "IdRol", "IpModifica", usuario.IdRol);
-            return View(usuario);
+            return View(model);
         }
 
         // GET: Registro/Delete/5
@@ -173,9 +194,13 @@ namespace PruebaBackendASEINFO.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var usuario = await _context.Usuarios.FindAsync(id);
-            _context.Usuarios.Remove(usuario);
+        { 
+            var cliente = await _context.Clientes.Include(c => c.IdUsuarioNavigation).FirstOrDefaultAsync(c => c.IdUsuario == id && c.Habilitado == true);
+            var usuario = cliente.IdUsuarioNavigation;
+            cliente.Habilitado = false;
+            usuario.Habilitado = false;
+            _context.Usuarios.Update(usuario);
+            _context.Clientes.Update(cliente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
