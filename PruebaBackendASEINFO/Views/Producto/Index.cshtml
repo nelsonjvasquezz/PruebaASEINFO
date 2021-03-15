@@ -1,15 +1,43 @@
 ﻿@model IEnumerable<PruebaBackendASEINFO.Models.Producto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Catálogo";
 }
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+    <div>
+        <div class="input-group">
+            <div class="form-outline col-md-11 mr-0 pr-0">
+                <input type="search" id="form1" class="form-control" placeholder="Buscar producto"/>
+            </div>
+            <button type="button" class="btn btn-primary">
+                Buscar
+            </button>
+        </div>
+    </div>
+</div>
 
-<h1>Index</h1>
+<h1 class="text-center font-weight-light">Catálogo de productos</h1>
+<hr />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div class="row mt-2">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <img class="card-img-top" src="@("~/Image/"+item.Imagen)" asp-append-version="true">
+                <div class="card-body">
+                    <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                    <p class="card-text text-center">@Html.DisplayFor(model => item.Descripcion)</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.IdProducto">Ver producto</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -86,4 +114,4 @@
         </tr>
 }
     </tbody>
-</table>
+</table>*@

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
@@ -16,6 +17,8 @@ namespace PruebaBackendASEINFO.Models
 
         public int IdProducto { get; set; }
         public string Nombre { get; set; }
+
+        [MaxLength(300)]
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public int Stock { get; set; }

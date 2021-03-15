@@ -59,7 +59,8 @@ namespace PruebaBackendASEINFO.Controllers
                 ViewBag.Error = "No se encontró el usuario";
                 return View("Login", login);
             }
-            return View("~/Views/Home/Index.cshtml");
+
+            return Redirect("/Home/");
         }
     }
 }
