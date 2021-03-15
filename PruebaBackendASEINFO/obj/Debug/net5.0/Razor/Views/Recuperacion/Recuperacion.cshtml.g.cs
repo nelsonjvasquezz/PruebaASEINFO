@@ -26,8 +26,22 @@ using PruebaBackendASEINFO.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\_ViewImports.cshtml"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"66dc1e8a5cdaac6e0e8ea2efd584d4df10f72792", @"/Views/Recuperacion/Recuperacion.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9dc9c59bc16bd360df78bbcd7bada369d4501201", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9517b020366e262f71a9de9187bbe39a1cbdc68d", @"/Views/_ViewImports.cshtml")]
     public class Views_Recuperacion_Recuperacion : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PruebaBackendASEINFO.ViewModels.RecuperacionViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Recuperacion", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -67,7 +81,7 @@ using PruebaBackendASEINFO.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<h1 class=\"font-weight-light\">Crear nueva contraseña</h1>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66dc1e8a5cdaac6e0e8ea2efd584d4df10f727924592", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66dc1e8a5cdaac6e0e8ea2efd584d4df10f727924986", async() => {
                 WriteLiteral("\r\n    ");
 #nullable restore
 #line 9 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\Recuperacion\Recuperacion.cshtml"

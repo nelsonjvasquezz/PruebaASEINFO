@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CryptoHelper;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace PruebaBackendASEINFO.Controllers
 {
@@ -38,7 +40,15 @@ namespace PruebaBackendASEINFO.Controllers
                 bool correcto = Crypto.VerifyHashedPassword(usuario.Contrasenia, login.Contrasenia + usuario.Salt);
                 if(correcto)
                 {
+                    Object user = new
+                    {
+                        IdUsuario = usuario.IdUsuario,
+                        NombreUsuario = usuario.NombreUsuario,
+                        Correo = usuario.Correo,
+                        IdRol = usuario.IdRol
+                    };
 
+                    HttpContext.Session.SetString("usuario", JsonConvert.SerializeObject(user));
                 } else
                 {
                     ViewBag.Error = "La contraseña es incorrecta";

@@ -26,8 +26,22 @@ using PruebaBackendASEINFO.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\_ViewImports.cshtml"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"84e5f6071f1fc0d8010d4dccb4d12eccd142266b", @"/Views/Registro/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9dc9c59bc16bd360df78bbcd7bada369d4501201", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9517b020366e262f71a9de9187bbe39a1cbdc68d", @"/Views/_ViewImports.cshtml")]
     public class Views_Registro_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PruebaBackendASEINFO.Models.Usuario>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -194,7 +208,7 @@ using PruebaBackendASEINFO.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84e5f6071f1fc0d8010d4dccb4d12eccd142266b9529", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84e5f6071f1fc0d8010d4dccb4d12eccd142266b9923", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -225,7 +239,7 @@ using PruebaBackendASEINFO.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" |\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84e5f6071f1fc0d8010d4dccb4d12eccd142266b11690", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84e5f6071f1fc0d8010d4dccb4d12eccd142266b12084", async() => {
                 WriteLiteral("Back to List");
             }
             );

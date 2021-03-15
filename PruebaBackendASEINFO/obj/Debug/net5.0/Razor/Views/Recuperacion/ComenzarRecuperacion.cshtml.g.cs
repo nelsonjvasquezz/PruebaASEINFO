@@ -26,8 +26,22 @@ using PruebaBackendASEINFO.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\_ViewImports.cshtml"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8b2eaf6198bcbf5b4e9f6ec75373b1d79387b7b7", @"/Views/Recuperacion/ComenzarRecuperacion.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9dc9c59bc16bd360df78bbcd7bada369d4501201", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9517b020366e262f71a9de9187bbe39a1cbdc68d", @"/Views/_ViewImports.cshtml")]
     public class Views_Recuperacion_ComenzarRecuperacion : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PruebaBackendASEINFO.ViewModels.CorreoViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "ComenzarRecuperacion", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -75,7 +89,7 @@ Write(ViewBag.Message);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n</div>\r\n<h1 class=\"font-weight-light\">Recuperar contraseña</h1>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b2eaf6198bcbf5b4e9f6ec75373b1d79387b7b74929", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b2eaf6198bcbf5b4e9f6ec75373b1d79387b7b75323", async() => {
                 WriteLiteral("\r\n    <div class=\"form-group\">\r\n        <label>Correo</label>\r\n        ");
 #nullable restore
 #line 13 "C:\Users\Nelsonv\Downloads\PruebaASEINFO\PruebaBackendASEINFO\Views\Recuperacion\ComenzarRecuperacion.cshtml"

@@ -138,8 +138,8 @@ namespace PruebaBackendASEINFO.Controllers
 
             if (ModelState.IsValid)
             {
-                Usuario usuario = new Usuario();
-                Cliente cliente = new Cliente();
+                var cliente = await _context.Clientes.Include(c => c.IdUsuarioNavigation).FirstOrDefaultAsync(c => c.IdCliente == id);
+                var usuario = cliente.IdUsuarioNavigation;
                 try
                 {
                     usuario.NombreUsuario = model.Username;
@@ -151,6 +151,8 @@ namespace PruebaBackendASEINFO.Controllers
                     cliente.Apellidos = model.Apellidos;
                     cliente.Genero = model.Genero;
                     cliente.Direccion = model.Direccion;
+                    cliente.FechaModifica = DateTime.Now;
+                    cliente.IpModifica = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
                     _context.Update(usuario);
                     _context.Update(cliente);
                     await _context.SaveChangesAsync();
@@ -179,15 +181,24 @@ namespace PruebaBackendASEINFO.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios
-                .Include(u => u.IdRolNavigation)
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
+            var cliente = await _context.Clientes.Include(c => c.IdUsuarioNavigation).FirstOrDefaultAsync(c => c.IdCliente == id);
+            var usuario = cliente.IdUsuarioNavigation;
+            RegistroViewModel model = new RegistroViewModel();
+            model.IdUsuario = (int)id;
+            model.Username = usuario.NombreUsuario;
+            model.Correo = usuario.Correo;
+            model.Nombres = cliente.Nombre;
+            model.Apellidos = cliente.Apellidos;
+            model.Genero = cliente.Genero;
+            model.Direccion = cliente.Direccion;
+            model.Contrasenia = usuario.Contrasenia;
+            model.ConfirmContra = usuario.Contrasenia;
             if (usuario == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(model);
         }
 
         // POST: Registro/Delete/5

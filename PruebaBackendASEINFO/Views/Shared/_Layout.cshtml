@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@{
+    if (Context.Session.GetString("usuario") != null)
+    {
+        Object usuario = (Object)JsonConvert.DeserializeObject(Context.Session.GetString("usuario"));
+        ViewBag.usuario = usuario;
+
+    }
+    else
+    {
+        ViewBag.usuario = null;
+    }
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,8 +25,8 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/Image/aseinfologo.png" width="130" height="80" class="d-inline-block align-top" alt="">                    
-                </a>                
+                    <img src="/Image/aseinfologo.png" width="130" height="80" class="d-inline-block align-top" alt="">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,15 +41,23 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Login" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Registro" asp-action="Create">Registrarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Registro" asp-action="Edit" asp-route-id="2">Mi cuenta</a>
-                        </li>
+                        @{
+                            if (ViewBag.usuario == null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Login" asp-action="Login">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Registro" asp-action="Create">Registrarse</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Registro" asp-action="Edit" asp-route-id="@ViewBag.usuario.IdUsuario">Mi cuenta</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>
@@ -50,7 +71,7 @@
 
     <footer class="border-top footer text-muted bg-dark">
         <div class="container text-center text-light">
-            &copy; 2021 - PRUEBA ASEINFO 
+            &copy; 2021 - PRUEBA ASEINFO
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

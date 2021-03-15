@@ -6,9 +6,6 @@ using Microsoft.Extensions.Hosting;
 using PruebaBackendASEINFO.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PruebaBackendASEINFO
 {
@@ -27,6 +24,10 @@ namespace PruebaBackendASEINFO
             services.AddDbContext<TiendaASEINFOContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +46,9 @@ namespace PruebaBackendASEINFO
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Para usar sesiones
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
