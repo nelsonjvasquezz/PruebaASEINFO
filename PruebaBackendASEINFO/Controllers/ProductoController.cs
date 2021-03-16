@@ -23,10 +23,19 @@ namespace PruebaBackendASEINFO.Controllers
         }
 
         // GET: Producto
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? Nombre)
         {
-            var tiendaASEINFOContext = _context.Productos.Include(p => p.IdCategoriaNavigation).Include(p => p.IdMarcaNavigation).Include(p => p.IdTipoNavigation);
-            return View(await tiendaASEINFOContext.ToListAsync());
+            if (Nombre == null)
+            {
+                var tiendaASEINFOContext = _context.Productos.Include(p => p.IdCategoriaNavigation).Include(p => p.IdMarcaNavigation).Include(p => p.IdTipoNavigation);
+                return View(await tiendaASEINFOContext.ToListAsync());
+            } else
+            {
+                var productos = _context.Productos.Include(p => p.IdCategoriaNavigation).
+                    Include(p => p.IdMarcaNavigation).
+                    Include(p => p.IdTipoNavigation).Where(p => p.Nombre.Contains(Nombre));
+                return View(await productos.ToListAsync());
+            }
         }
 
         // GET: Producto/Details/5
